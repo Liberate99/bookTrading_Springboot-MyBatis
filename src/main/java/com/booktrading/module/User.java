@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class User {
-    private int id;
+    private int userid;
     private String username;
     private String password;
     private String userpic;

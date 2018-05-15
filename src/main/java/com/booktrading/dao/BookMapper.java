@@ -12,6 +12,11 @@ import com.booktrading.module.Book;
 
 @Mapper
 public interface BookMapper {
+
+    // selectAllBooks
+    @Select("select * from book")
+    public List<Book> selectAllBooks();
+
     // selectById
     @Select("select * from book where bookid = #{bookid}")
     public Book selectBookById(int bookid);

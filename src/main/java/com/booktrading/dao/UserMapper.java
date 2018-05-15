@@ -12,7 +12,6 @@ import com.booktrading.module.User;
 
 @Mapper
 public interface UserMapper {
-
     @Select("select * from user where userid = #{userid}")
     public User selectUserById(int userid);
 
