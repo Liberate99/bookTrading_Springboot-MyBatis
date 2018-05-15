@@ -19,4 +19,5 @@ public class Book {
     private int purchaserid;
     private int status;
     private float bookprice;
+    private String bookcontent;
 }
