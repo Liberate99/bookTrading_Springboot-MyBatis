@@ -1,16 +1,15 @@
 package com.booktrading.module;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Created by apple on 2018/5/13.
+ * Created by apple on 2018/5/16.
  */
 
 @Setter
 @Getter
-public class Book {
+public class BookWithPromulgator{
     private int bookid;
     private String bookname;
     private String authername;
@@ -21,4 +20,9 @@ public class Book {
     private float bookprice;
     private String bookcontent;
     private String publishTime;
+
+//    private int userid;
+    private String username;
+    private String password;
+    private String userpic;
 }

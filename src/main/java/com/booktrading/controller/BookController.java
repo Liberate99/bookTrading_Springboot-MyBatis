@@ -2,6 +2,7 @@ package com.booktrading.controller;
 
 import com.booktrading.dao.BookMapper;
 import com.booktrading.module.Book;
+import com.booktrading.module.BookWithPromulgator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,6 +26,12 @@ public class BookController {
     @RequestMapping(value = {"/selectAllBooks"}, method = RequestMethod.GET)
     public List<Book> selectAllBooks(){
         return bookMapper.selectAllBooks();
+    }
+
+    //select all books with promulgator info
+    @RequestMapping(value = {"/selectAllBooksWithPromulgator"}, method = RequestMethod.GET)
+    public List<BookWithPromulgator> selectAllBooksWithPromulgator(){
+        return bookMapper.selectAllBooksWithPromulgator();
     }
 
     //select book by bookid

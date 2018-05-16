@@ -2,6 +2,7 @@ package com.booktrading.dao;
 
 import java.util.List;
 
+import com.booktrading.module.BookWithPromulgator;
 import org.apache.ibatis.annotations.*;
 
 import com.booktrading.module.Book;
@@ -10,12 +11,18 @@ import com.booktrading.module.Book;
  * Created by apple on 2018/5/13.
  */
 
+
+
 @Mapper
 public interface BookMapper {
 
     // selectAllBooks
     @Select("select * from book")
     public List<Book> selectAllBooks();
+    
+    // selectAllBooksWithPromulgator
+    @Select("select * from book b,user u where b.promulgatorid = u.userid")
+    public List<BookWithPromulgator> selectAllBooksWithPromulgator();
 
     // selectById
     @Select("select * from book where bookid = #{bookid}")
