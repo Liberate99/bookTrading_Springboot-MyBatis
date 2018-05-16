@@ -19,7 +19,7 @@ public class BookWithPromulgator{
     private int status;
     private float bookprice;
     private String bookcontent;
-    private String publishTime;
+    private String publishtime;
 
 //    private int userid;
     private String username;

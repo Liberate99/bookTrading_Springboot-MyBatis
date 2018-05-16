@@ -34,6 +34,16 @@ public class BookController {
         return bookMapper.selectAllBooksWithPromulgator();
     }
 
+    // selectAllBooksWithPromulgatorByBookId
+    @RequestMapping(value = {"/selectAllBooksWithPromulgatorByBookId"}, method = RequestMethod.GET)
+    public BookWithPromulgator selectAllBooksWithPromulgatorByBookId(@RequestParam(value = "bookid") int id){
+        BookWithPromulgator bookWithPromulgator = bookMapper.selectAllBooksWithPromulgatorByBookId(id);
+        return bookWithPromulgator;
+    }
+//    @Select("select * from book b,user u where (b.promulgatorid = u.userid) and (b.bookid = #{bookid})")
+//    public List<BookWithPromulgator> selectAllBooksWithPromulgator(int bookid);
+
+
     //select book by bookid
     @RequestMapping(value = {"/selectBookById"}, method = RequestMethod.GET)
     public Book selectBookById(@RequestParam(value = "bookid") String id){

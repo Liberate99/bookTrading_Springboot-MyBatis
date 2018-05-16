@@ -20,5 +20,5 @@ public class Book {
     private int status;
     private float bookprice;
     private String bookcontent;
-    private String publishTime;
+    private String publishtime;
 }
