@@ -28,9 +28,13 @@ public interface BookMapper {
     @Select("select * from book b,user u where (b.promulgatorid = u.userid) and (b.bookid = #{bookid})")
     public BookWithPromulgator selectAllBooksWithPromulgatorByBookId(int bookid);
 
-    // selectById
+    // selectBookByBookId
     @Select("select * from book where bookid = #{bookid}")
     public Book selectBookById(int bookid);
+
+    // selectBookByUserId
+    @Select("select * from book where promulgatorid = #{promulgatorid}")
+    public List<bookWithPrice> selectBookByUserId(@Param("promulgatorid")int promulgatorid);
 
     // TODO: 2018/5/13 book selectByName
 

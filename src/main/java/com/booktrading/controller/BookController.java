@@ -1,6 +1,7 @@
 package com.booktrading.controller;
 
 import com.booktrading.dao.BookMapper;
+import com.booktrading.dao.bookWithPrice;
 import com.booktrading.module.Book;
 import com.booktrading.module.BookWithPromulgator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,13 @@ public class BookController {
         Book book = bookMapper.selectBookById(Integer.parseInt(id));
         return book;
     }
+
+    // select Book By UserId
+    @RequestMapping(value = {"/selectBookByUserId"}, method = RequestMethod.GET)
+    public List<bookWithPrice> selectBookByUserId(@RequestParam("promulgatorid")int promulgatorid){
+        return bookMapper.selectBookByUserId(promulgatorid);
+    }
+
 
     // TODO: 2018/5/13 selectBookByName
 
