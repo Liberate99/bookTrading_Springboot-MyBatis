@@ -21,8 +21,11 @@ public interface UserMapper {
     @Insert("insert into user(username,password,userpic) values (#{username},#{password},#{userpic})")
     public void addUser(User user);
 
-    @Update("update user set username=#{userName},password=#{passWord},userpic=#{userpic} where userid=#{userid}")
+    @Update("update user set username=#{username},password=#{password},userpic=#{userpic},balance=#{balance} where userid=#{userid}")
     public void updateUser(User user);
+
+    @Update("update user set balance=#{balance} where username=#{username}")
+    public int updateUserBalance(@Param("username") String username, @Param("balance") float balance);
 
     @Delete("delete from user where userid=#{userid}")
     public void deleteUser(int id);

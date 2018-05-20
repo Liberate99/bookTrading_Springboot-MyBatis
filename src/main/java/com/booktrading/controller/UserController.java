@@ -45,6 +45,11 @@ public class UserController {
         userMapper.updateUser(user);
     }
 
+    @RequestMapping(value = {"/updateUserBalance"}, method = RequestMethod.POST)
+    public int updateUserBalance(@RequestParam(value = "username") String username, @RequestParam(value = "balance") float balance) {
+        return userMapper.updateUserBalance(username,balance);
+    }
+
     @RequestMapping(value={"/deleteUser"}, method=RequestMethod.POST)
     public void deleteUser(String id){
         userMapper.deleteUser(Integer.parseInt(id));

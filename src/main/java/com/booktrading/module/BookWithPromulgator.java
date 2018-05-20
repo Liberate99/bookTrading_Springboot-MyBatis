@@ -25,4 +25,5 @@ public class BookWithPromulgator{
     private String username;
     private String password;
     private String userpic;
+    private float balance;
 }
