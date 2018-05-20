@@ -35,6 +35,11 @@ public class UserController {
         return userMapper.selectUserByName(userName);
     }
 
+    @RequestMapping(value = "/selectUserBalanceByName", method = RequestMethod.GET)
+    public float selectUserBalanceByName(@RequestParam(value = "username") String userName){
+        return userMapper.selectUserBalanceByName(userName);
+    }
+
     @RequestMapping(value={"/addUser"}, method=RequestMethod.POST)
     public void addUser(User user){
         userMapper.addUser(user);

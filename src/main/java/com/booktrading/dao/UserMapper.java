@@ -18,6 +18,10 @@ public interface UserMapper {
     @Select("select * from user where username = #{username}")
     public List<User> selectUserByName(String userName);
 
+    // 获取用户余额
+    @Select("select balance from user where username = #{username}")
+    public float selectUserBalanceByName(String userName);
+
     @Insert("insert into user(username,password,userpic) values (#{username},#{password},#{userpic})")
     public void addUser(User user);
 
