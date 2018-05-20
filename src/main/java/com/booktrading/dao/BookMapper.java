@@ -38,9 +38,9 @@ public interface BookMapper {
 
     // TODO: 2018/5/13 book insert
 
-    // upDateBookStatus
-    @Update("update book set status=#{status} where bookid=#{bookid}")
-    public int upDateBookStatus(@Param("bookid")int bookid, @Param("status")int status);
+    // upDateBookStatus_PurchaserId
+    @Update("update book set status=#{status}, purchaserid=#{purchaserid} where bookid=#{bookid}")
+    public int upDateBookStatus_PurchaserId(@Param("bookid")int bookid, @Param("purchaserid")int purchaserid, @Param("status")int status);
 
     // TODO: 2018/5/13 book delete
 }

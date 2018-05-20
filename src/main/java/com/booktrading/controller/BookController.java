@@ -55,8 +55,8 @@ public class BookController {
     // TODO: 2018/5/13 selectBookByAutherName
 
     // upDate Book Status
-    @RequestMapping(value = {"/upDateBookStatus"}, method = RequestMethod.POST)
-    public int upDateBookStatus(@RequestParam(value = "bookid") int bookid, @RequestParam(value = "status") int status){
-        return bookMapper.upDateBookStatus(bookid, status);
+    @RequestMapping(value = {"/upDateBookStatusANDPurchaserId"}, method = RequestMethod.POST)
+    public int upDateBookStatus_PurchaserId(@RequestParam(value = "bookid") int bookid, @RequestParam(value = "purchaserid") int purchaserid, @RequestParam(value = "status") int status){
+        return bookMapper.upDateBookStatus_PurchaserId(bookid, purchaserid, status);
     }
 }
