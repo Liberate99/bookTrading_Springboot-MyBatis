@@ -22,7 +22,7 @@ public interface UserMapper {
     @Select("select balance from user where username = #{username}")
     public float selectUserBalanceByName(String userName);
 
-    @Insert("insert into user(username,password,userpic) values (#{username},#{password},#{userpic})")
+    @Insert("insert into user(username,password,userpic,balance) values (#{username},#{password},#{userpic},#{balance})")
     public void addUser(User user);
 
     @Update("update user set username=#{username},password=#{password},userpic=#{userpic},balance=#{balance} where userid=#{userid}")

@@ -24,6 +24,10 @@ public interface BookMapper {
     @Select("select * from book b,user u where b.promulgatorid = u.userid")
     public List<BookWithPromulgator> selectAllBooksWithPromulgator();
 
+    // selectAllBooksByPromulgatorid
+    @Select("select * from book where promulgatorid=#{promulgatorid}")
+    public List<Book> selectAllBooksByPromulgatorid(int promulgatorid);
+
     // selectAllBooksWithPromulgatorByBookId
     @Select("select * from book b,user u where (b.promulgatorid = u.userid) and (b.bookid = #{bookid})")
     public BookWithPromulgator selectAllBooksWithPromulgatorByBookId(int bookid);
@@ -40,7 +44,9 @@ public interface BookMapper {
 
     // TODO: 2018/5/13 book selectByAutherName
 
-    // TODO: 2018/5/13 book insert
+    // insertBook
+    @Insert("insert into book(bookname,authername,promulgatorid,purchaserid,status,bookprice,bookcontent,publishtime,picurl) values (#{bookname},#{authername},#{promulgatorid},#{purchaserid},#{status},#{bookprice},#{bookcontent},#{publishtime},#{picurl})")
+    public void addBook(Book book);
 
     // upDateBookStatus_PurchaserId
     @Update("update book set status=#{status}, purchaserid=#{purchaserid} where bookid=#{bookid}")

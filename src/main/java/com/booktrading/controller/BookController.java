@@ -35,6 +35,12 @@ public class BookController {
         return bookMapper.selectAllBooksWithPromulgator();
     }
 
+    // selectAllBooksByPromulgatorid
+    @RequestMapping(value = {"/selectAllBooksByPromulgatorid"}, method = RequestMethod.GET)
+    public List<Book> selectAllBooksByPromulgatorid(@RequestParam(value = "promulgatorid")int promulgatorid) {
+        return bookMapper.selectAllBooksByPromulgatorid(promulgatorid);
+    }
+
     // select All Books With Promulgator By BookId
     @RequestMapping(value = {"/selectAllBooksWithPromulgatorByBookId"}, method = RequestMethod.GET)
     public BookWithPromulgator selectAllBooksWithPromulgatorByBookId(@RequestParam(value = "bookid") int id){
@@ -56,6 +62,16 @@ public class BookController {
     public List<bookWithPrice> selectBookByUserId(@RequestParam("promulgatorid")int promulgatorid, @RequestParam("price")float price){
         return bookMapper.selectBookByUserId(promulgatorid,price);
     }
+
+
+
+    // insertBook
+    @RequestMapping(value={"/addBook"}, method=RequestMethod.POST)
+    public void addBook(Book book) {
+        bookMapper.addBook(book);
+    }
+
+
 
 
     // TODO: 2018/5/13 selectBookByName
