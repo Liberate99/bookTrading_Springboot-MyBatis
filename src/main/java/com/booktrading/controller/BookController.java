@@ -53,8 +53,8 @@ public class BookController {
 
     // select Book By UserId
     @RequestMapping(value = {"/selectBookByUserId"}, method = RequestMethod.GET)
-    public List<bookWithPrice> selectBookByUserId(@RequestParam("promulgatorid")int promulgatorid){
-        return bookMapper.selectBookByUserId(promulgatorid);
+    public List<bookWithPrice> selectBookByUserId(@RequestParam("promulgatorid")int promulgatorid, @RequestParam("price")float price){
+        return bookMapper.selectBookByUserId(promulgatorid,price);
     }
 
 

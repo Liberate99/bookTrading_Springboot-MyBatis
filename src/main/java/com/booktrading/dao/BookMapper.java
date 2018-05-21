@@ -32,9 +32,9 @@ public interface BookMapper {
     @Select("select * from book where bookid = #{bookid}")
     public Book selectBookById(int bookid);
 
-    // selectBookByUserId
-    @Select("select * from book where promulgatorid = #{promulgatorid}")
-    public List<bookWithPrice> selectBookByUserId(@Param("promulgatorid")int promulgatorid);
+    // selectBookByUserId & price小于等于此书
+    @Select("select * from book where promulgatorid = #{promulgatorid} and bookprice <= #{price}")//select * from book where promulgatorid = #{promulgatorid} and price <= #{bookprice}
+    public List<bookWithPrice> selectBookByUserId(@Param("promulgatorid")int promulgatorid, @Param("price")float price);
 
     // TODO: 2018/5/13 book selectByName
 
