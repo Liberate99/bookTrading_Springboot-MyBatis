@@ -50,6 +50,11 @@ public class UserController {
         userMapper.updateUser(user);
     }
 
+    @RequestMapping(value={"/reduceUserBalance"}, method = RequestMethod.POST)
+    public int reduceUserBalance(@RequestParam(value = "userid") int userid, @RequestParam(value = "price") float price) {
+        return userMapper.reduceUserBalance(userid,price);
+    }
+
     @RequestMapping(value = {"/updateUserBalance"}, method = RequestMethod.POST)
     public int updateUserBalance(@RequestParam(value = "username") String username, @RequestParam(value = "balance") float balance) {
         return userMapper.updateUserBalance(username,balance);

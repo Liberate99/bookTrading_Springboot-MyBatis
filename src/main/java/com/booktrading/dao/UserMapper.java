@@ -28,6 +28,10 @@ public interface UserMapper {
     @Update("update user set username=#{username},password=#{password},userpic=#{userpic},balance=#{balance} where userid=#{userid}")
     public void updateUser(User user);
 
+    // reduceUserBalance
+    @Update("update user set balance=balance - #{price} where userid=#{userid}")
+    public int reduceUserBalance(@Param("userid") int userid, @Param("price") float price);
+
     @Update("update user set balance=#{balance} where username=#{username}")
     public int updateUserBalance(@Param("username") String username, @Param("balance") float balance);
 
