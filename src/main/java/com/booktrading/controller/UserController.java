@@ -40,6 +40,12 @@ public class UserController {
         return userMapper.selectUserBalanceByName(userName);
     }
 
+    // 获取用户收藏
+    @RequestMapping(value = "/selectUserCollectionByName", method = RequestMethod.GET)
+    public String selectUserCollectionByName(@RequestParam(value = "username") String username){
+        return userMapper.selectUserCollectionByName(username);
+    }
+
     @RequestMapping(value={"/addUser"}, method=RequestMethod.POST)
     public void addUser(User user){
         userMapper.addUser(user);
@@ -48,6 +54,12 @@ public class UserController {
     @RequestMapping(value={"/updateUser"}, method=RequestMethod.POST)
     public void updateUser(User user){
         userMapper.updateUser(user);
+    }
+
+    // 添加收藏
+    @RequestMapping(value={"/addCollection"}, method = RequestMethod.POST)
+    public int addCollection(@RequestParam(value = "username") String username, @RequestParam(value = "collection") String collection) {
+        return userMapper.addCollection(username,collection);
     }
 
     @RequestMapping(value={"/reduceUserBalance"}, method = RequestMethod.POST)

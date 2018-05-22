@@ -16,4 +16,5 @@ public class User {
     private String password;
     private String userpic;
     private float balance;
+    private String collection;
 }
