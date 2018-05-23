@@ -41,6 +41,12 @@ public class BookController {
         return bookMapper.selectAllBooksByPromulgatorid(promulgatorid);
     }
 
+    //selectBookByBooknameOrAuthername  模糊查询
+    @RequestMapping(value = {"/selectBookByBooknameOrAuthername"}, method = RequestMethod.GET)
+    public List<Book> selectBookByBooknameOrAuthername(@RequestParam(value = "_str") String _str){
+        return bookMapper.selectBookByBooknameOrAuthername(_str);
+    }
+
     // select All Books With Promulgator By BookId
     @RequestMapping(value = {"/selectAllBooksWithPromulgatorByBookId"}, method = RequestMethod.GET)
     public BookWithPromulgator selectAllBooksWithPromulgatorByBookId(@RequestParam(value = "bookid") int id){

@@ -28,6 +28,10 @@ public interface BookMapper {
     @Select("select * from book where promulgatorid=#{promulgatorid}")
     public List<Book> selectAllBooksByPromulgatorid(int promulgatorid);
 
+    // selectBookByBooknameOrAuthername  模糊查询
+    @Select("select * from book where bookname like '%${_str}%' or authername like '%${_str}%'")
+    public List<Book> selectBookByBooknameOrAuthername(@Param("_str") String _str);
+
     // selectAllBooksWithPromulgatorByBookId
     @Select("select * from book b,user u where (b.promulgatorid = u.userid) and (b.bookid = #{bookid})")
     public BookWithPromulgator selectAllBooksWithPromulgatorByBookId(int bookid);
