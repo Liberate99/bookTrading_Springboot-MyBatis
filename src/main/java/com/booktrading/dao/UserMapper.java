@@ -26,8 +26,8 @@ public interface UserMapper {
     @Select("select collection from user where username = #{usernmae}")
     public String selectUserCollectionByName(String userName);
 
-    @Insert("insert into user(username,password,userpic,balance) values (#{username},#{password},#{userpic},#{balance})")
-    public void addUser(User user);
+    @Insert("insert into user(username,password,userpic) values (#{username},#{password},#{userpic})")
+    public int addUser(User user);
 
     @Update("update user set username=#{username},password=#{password},userpic=#{userpic},balance=#{balance} where userid=#{userid}")
     public void updateUser(User user);

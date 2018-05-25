@@ -47,8 +47,8 @@ public class UserController {
     }
 
     @RequestMapping(value={"/addUser"}, method=RequestMethod.POST)
-    public void addUser(User user){
-        userMapper.addUser(user);
+    public int addUser(User user){
+        return userMapper.addUser(user);
     }
 
     @RequestMapping(value={"/updateUser"}, method=RequestMethod.POST)
